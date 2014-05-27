@@ -23,7 +23,7 @@ function uptime(count, interval) {
 controllers.controller('UsersController', ['$scope', '$http',
     function($scope, $http) {
 
-        $scope.hello = 'world';
+        $scope.cps = 0;
         $scope.users = [];
 
         $http.get('/users')
@@ -39,6 +39,7 @@ controllers.controller('UsersController', ['$scope', '$http',
                         .get('/user/' + user.email + '/check_count')
                         .then(function(count){
                             user.count = count.data;
+                            $scope.cps += count.data.frequency;
                         });
                 });
             });

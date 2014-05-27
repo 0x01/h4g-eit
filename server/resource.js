@@ -50,16 +50,18 @@ exports.Users = {
         return db
             .newQueryBuilder(tables.checks)
             .setHashKey('email_address', email_address)
-            .selectAttributes(['enabled', 'frequency'])
+            .selectAttributes(['enabled', 'frequency', 'locations'])
             .execute()
             .then(_.property('result'))
             .then(H
                 .reduce(function(accum, value){
-                    var enabled = value.enabled || 0
-                    accum.checks_enabled += enabled;
-                    accum.checks_disabled += 1 - enabled;
+                    var on = value.enabled || 0
+                    var locs = (value.locations && value.locations.length) || 0
+                    var F = (1/value.frequency) * locs * on;
+                    accum.checks_enabled += on;
+                    accum.checks_disabled += 1 - on;
                     accum.checks_total += 1;
-                    accum.frequency += (1/value.frequency) || 0;
+                    accum.frequency += F || 0;
                     return accum;
                 },{
                     checks_enabled: 0,
