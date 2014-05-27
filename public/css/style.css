@@ -9,6 +9,12 @@ span.location {
     border-radius: 4px;
 }
 
+button.huge {
+    font-size: 18pt;
+    border-radius: 8pt;
+    padding: 12px;
+}
+
 span.detail {
     color: #c6c6c6;
 }

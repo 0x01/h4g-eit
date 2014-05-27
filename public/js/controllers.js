@@ -81,6 +81,67 @@ controllers.controller('ChecksController', ['$scope', '$http', '$routeParams',
 ]);
 
 
-controllers.controller('PaymentController', ['$scope', function($scope) {
-    $scope.amount = 10;
-}]);
+// helper function that serializes a form
+function serializeForm(element) {
+    var form = {};
+    for ( var i = 0; i < element.elements.length; i++ ) {
+        var e = element.elements[i];
+        switch(e.name){
+            // only take the elements with this name
+            case 'number':
+            case 'cvv':
+            case 'exp_month':
+            case 'exp_year':
+                form[e.name] = e.value;
+//                kvpairs.push(
+//                    encodeURIComponent(e.name) + "=" +
+//                        encodeURIComponent(e.value));
+        }
+    }
+
+    return form;//kvpairs.join("&");
+}
+
+controllers.controller('PaymentController', ['$scope','$http',
+    function($scope, $http) {
+
+        // offered units of purchase
+        $scope.units = [
+            {amount: 5, label: '$5'},
+            {amount: 10, label: '$10'},
+            {amount: 20, label: '$20'},
+            {amount: 30, label: '$30'},
+            {amount: 40, label: '$40'},
+            {amount: 50, label: '$50'},
+            {amount: 100, label: '$100'},
+            {amount: 200, label: '$200'}
+        ];
+
+        $scope.credits = 0;
+
+        // first amount is default
+        $scope.amount = $scope.units[0].amount;
+
+        $scope.performingSale = false;
+        $scope.purchase = function() {
+            $scope.performingSale = true;
+
+            // perform braintree voodoo
+            var bt = 'braintree-payment-form';
+            braintree.encryptForm(bt);
+
+            // pull out the data
+            var element = document.getElementById(bt);
+
+            var data = serializeForm(element);
+
+            $http.post('/payments/' + $scope.amount, data)
+                .success(function(data){
+                    console.log(data);
+                    $scope.credits += parseFloat(data.amount)
+                    $scope.response = data.response;
+                    $scope.performingSale = false;
+                });
+        }
+    }
+]);

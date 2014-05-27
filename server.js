@@ -18,5 +18,6 @@ var R = require('./server/resource');
 app.get('/users', R.Users.list);
 app.get(/\/user\/(.+?)\/checks/, R.Checks.list);
 app.get(/\/user\/(.+?)\/check_count/, R.Users.check_count);
+app.post('/payments/:amount', R.Payments.create_transaction);
 
 mach.serve(app, 3000);
