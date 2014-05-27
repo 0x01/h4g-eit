@@ -1,0 +1,25 @@
+<ul>
+    <input type="text" ng-model="name"/>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th><th>Email address</th><th>Total pings</th><th>Credits left</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="user in users | filter:name | orderBy:'name'">
+                <td>{{user.name}}</td><td>{{user.email}}</td><td>{{user.pings}}</td><td>{{user.credits}}</td>
+            </tr>
+        </tbody>
+    </table>
+
+
+    <p>Invite user
+    <label>Name</label>
+    <input type="text" ng-model="newUser.name"/><br/>
+    <label>E-Mail</label>
+    <input type="text" ng-model="newUser.email"/><br/>
+        <button ng-click="addUser()"/>
+    </p>
+</ul>
