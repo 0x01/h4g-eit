@@ -11,7 +11,12 @@ app.use(mach.params);
 app.use(mach.file, {root: path.join(__dirname, 'public'), index: ['index.html']})
 app.use(mach.file, {root: path.join(__dirname, 'bower_components')})
 
+
 // API
-app.get('/users', require('./server/resource.js').list);
+var R = require('./server/resource');
+
+app.get('/users', R.Users.list);
+app.get(/\/user\/(.+?)\/checks/, R.Checks.list);
+app.get(/\/user\/(.+?)\/check_count/, R.Users.check_count);
 
 mach.serve(app, 3000);

@@ -13,6 +13,6 @@ exports.DB = new Dynamite.Client({
 });
 
 exports.tables = {
-    users: settings.dynamodb.users_table_name
+    users: settings.dynamodb.users_table_name,
+    checks: settings.dynamodb.checks_table_name
 };
-

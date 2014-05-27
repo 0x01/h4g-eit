@@ -1,0 +1,36 @@
+<p>Checks for user {{ user.email }}</p>
+
+<input type="text" ng-model="filterString"/>
+
+<table>
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>ID</th>
+        <th>URL</th>
+        <th>State</th>
+        <th>Interval</th>
+        <th>Freq (/day)</th>
+        <th>Cost (/month)</th>
+        <th>Locations</th>
+        <th>Downtime (days)</th>
+        <th>Uptime (days)</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr ng-repeat="check in checks | filter:filterString | orderBy:'uptime'">
+        <td>{{check.name | limitTo: 64}}</td>
+        <td>{{check.id | limitTo: 8}}</td>
+        <td>{{check.url | limitTo: 32}}</td>
+        <td><span class='status-{{check.state}}'>{{check.state}}</span></td>
+        <td>{{check.interval}}</td>
+        <td>{{check.daily_frequency}}</td>
+        <td>{{check.monthly_cost | currency}}</td>
+        <td>
+            <span class='location' ng-repeat="location in check.locations">{{location}}</span>
+        </td>
+        <td>{{check.downtime}}</td>
+        <td>{{check.uptime}}</td>
+    </tr>
+    </tbody>
+</table>
