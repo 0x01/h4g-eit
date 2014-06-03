@@ -1,7 +1,10 @@
 var _ = require('lodash');
 
 // load settings.json
-var settings = require('./settings.json')['radar_api.30mhz.com'];
+var json_file = require('./settings.json');
+var settings = json_file['radar_api.30mhz.com'];
+
+exports.environment = json_file.environment;
 
 var Dynamite = require('dynamite')
 

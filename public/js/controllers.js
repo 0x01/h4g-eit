@@ -26,6 +26,11 @@ controllers.controller('UsersController', ['$scope', '$http',
         $scope.cps = 0;
         $scope.users = [];
 
+        $http.get('/config/environment')
+            .then(function(res){
+                $scope.environment = res.data;
+            });
+
         $http.get('/users')
             .then(function(users){
                 $scope.users = users.data.map(function(user){
