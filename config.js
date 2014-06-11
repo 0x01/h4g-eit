@@ -2,7 +2,7 @@ var _ = require('lodash');
 
 // load settings.json
 var json_file = require('./settings.json');
-var settings = json_file['radar_api.30mhz.com'];
+var settings = json_file['admin.30mhz.com'];
 
 exports.environment = json_file.environment;
 

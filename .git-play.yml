@@ -1,0 +1,12 @@
+app:
+    workdir: /home/30mhz/admin.30mhz.com/
+    respawn: yes
+    exec: node server.js
+
+setup:
+    - bower install
+    - npm install
+    - curl -L -o settings.json http://169.254.169.254/latest/user-data
+
+teardown:
+    - echo "The server is going down for maintanance...\n"
