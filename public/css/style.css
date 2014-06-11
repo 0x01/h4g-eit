@@ -57,3 +57,16 @@ table tbody tr:hover td
     color: #009;
     background-color: #eee;
 }
+
+tr.check-enabled-1 {
+  background-color: rgba(220,240,0,0.1);
+}
+
+.check-enabled- .status-down {
+  background-color: #bbb !important;
+}
+
+.check-enabled-0 .status-down {
+  background-color: #bbb !important;
+}
+

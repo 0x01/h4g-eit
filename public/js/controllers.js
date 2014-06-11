@@ -77,7 +77,7 @@ controllers.controller('ChecksController', ['$scope', '$http', '$routeParams',
                     check.uptime = uptime(check.nr_recent_ups, check.interval);
                     check.downtime = uptime(check.nr_recent_downs, check.interval);
                     check.daily_frequency = DAY / check.interval;
-                    var enabled = check.enabled ? 1 : 0;
+                    var enabled = Number(check.enabled) ? 1 : 0;
                     var n = check.locations ? check.locations.length : 0;
                     var c = (check.daily_frequency * 30.5) * n;
                     check.monthly_cost = (enabled * c / PING_COST).toFixed(2);

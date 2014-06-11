@@ -8,6 +8,7 @@
         <th>Name</th>
         <th>ID</th>
         <th>URL</th>
+        <th>Enabled</th>
         <th>State</th>
         <th>Interval</th>
         <th>Freq (/day)</th>
@@ -18,11 +19,12 @@
     </tr>
     </thead>
     <tbody>
-    <tr ng-repeat="check in checks | filter:filterString | orderBy:'uptime'">
+    <tr class='check-enabled-{{check.enabled}}' ng-repeat="check in checks | filter:filterString | orderBy:'uptime'">
         <td>{{check.name | limitTo: 64}}</td>
         <td>{{check.id | limitTo: 8}}</td>
         <td>{{check.url | limitTo: 32}}</td>
-        <td><span class='status-{{check.state}}'>{{check.state}}</span></td>
+        <td><span class='enabled-{{check.enabled}}'>{{check.enabled}}</span></td>
+        <td><span class='enabled-{{check.enabled}} status-{{check.state}}'>{{check.state}}</span></td>
         <td>{{check.interval}}</td>
         <td>{{check.daily_frequency}}</td>
         <td>{{check.monthly_cost | currency}}</td>
