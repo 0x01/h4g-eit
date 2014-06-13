@@ -2,8 +2,23 @@ body {
     font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
 }
 
+.right-aligned {
+  float: right;
+}
+
+tr.check-running span.location {
+    background-color: #f0f0e0;
+}
+// regions
+
+span.location-EUW1 {
+ background: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iOTAwIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGhlaWdodD0iNjAwIiB2aWV3Qm94PSIwIDAgOSA2Ij4NCjxwYXRoIGZpbGw9IiMyMTQ2OGIiIGQ9Im0wLDBoOXY2aC05eiIvPg0KPHBhdGggZmlsbD0iI2ZmZiIgZD0ibTAsMGg5djRoLTl6Ii8+DQo8cGF0aCBmaWxsPSIjYWUxYzI4IiBkPSJtMCwwaDl2MmgtOXoiLz4NCjwvc3ZnPg0K') !important;
+ width: 24px;
+ height: 16px;
+ background-size: 100% 100%;
+}
+
 span.location {
-    background-color: #f7f5e6;
     padding: 3px;
     margin: 3px;
     border-radius: 4px;
@@ -58,15 +73,11 @@ table tbody tr:hover td
     background-color: #eee;
 }
 
-tr.check-enabled-1 {
-  background-color: rgba(220,240,0,0.1);
-}
+tr.check-running { background-color: rgba(220,240,0,0.1); }
 
-.check-enabled- .status-down {
+.check-pause.status-down {
   background-color: #bbb !important;
 }
 
-.check-enabled-0 .status-down {
-  background-color: #bbb !important;
-}
+
 

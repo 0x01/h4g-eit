@@ -81,6 +81,17 @@ controllers.controller('ChecksController', ['$scope', '$http', '$routeParams',
                     var n = check.locations ? check.locations.length : 0;
                     var c = (check.daily_frequency * 30.5) * n;
                     check.monthly_cost = (enabled * c / PING_COST).toFixed(2);
+					check.enabled = enabled ? 'running' : 'pause';
+					check.locations = check.locations.map(function(loc){
+						return loc
+							.replace(/-/,'_')
+							.replace(/-/,'')
+							.replace('west','w')
+							.replace('east','e')
+							.replace('amsterdam','a')
+							.replace('sanfrancisco','sf')
+							.toUpperCase();
+					});
                     return check;
                 });
             });

@@ -19,20 +19,21 @@
     </tr>
     </thead>
     <tbody>
-    <tr class='check-enabled-{{check.enabled}}' ng-repeat="check in checks | filter:filterString | orderBy:'uptime'">
+    <tr class='check-{{check.enabled}}' ng-repeat="check in checks | filter:filterString |
+    orderBy:'daily_frequency':true">
         <td>{{check.name | limitTo: 64}}</td>
         <td>{{check.id | limitTo: 8}}</td>
         <td>{{check.url | limitTo: 32}}</td>
-        <td><span class='enabled-{{check.enabled}}'>{{check.enabled}}</span></td>
-        <td><span class='enabled-{{check.enabled}} status-{{check.state}}'>{{check.state}}</span></td>
+        <td><span class='check-{{check.enabled}}'>{{check.enabled}}</span></td>
+        <td><span class='check-{{check.enabled}} status-{{check.state}}'>{{check.state}}</span></td>
         <td>{{check.interval}}</td>
         <td>{{check.daily_frequency}}</td>
         <td>{{check.monthly_cost | currency}}</td>
         <td>
-            <span class='location' ng-repeat="location in check.locations">{{location}}</span>
+            <span class='location location-{{location.replace("_","")}}' ng-repeat="location in check.locations">{{location}}</span>
         </td>
-        <td>{{check.downtime}}</td>
-        <td>{{check.uptime}}</td>
+        <td><span class='right-aligned'>{{check.downtime.toFixed(2)}}</span></td>
+        <td><span class='right-aligned'>{{check.uptime.toFixed(2)}}</span></td>
     </tr>
     </tbody>
 </table>
