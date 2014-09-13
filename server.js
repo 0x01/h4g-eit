@@ -21,6 +21,7 @@ app.get('/config/environment', function() {
 // /user(s) API
 var R = require('./server/resource');
 app.get('/api/cards', R.Cards.list);
+app.get('/api/test/cards', R.Cards.test);
 
 
 //app.get(/\/user\/(.+?)\/checks/, R.Checks.list);

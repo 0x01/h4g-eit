@@ -27,8 +27,21 @@ function mockDb(){
 
 
 exports.Cards = {
-	list:function() {
-		return mockDb()
+	list: function() {
+		return db
+			.newScanBuilder(tables.cards)
+			.execute()
+			.then(_.property('result'))
+			.then(H.map(
+			    function(card){
+			        return {
+			            id: card.key,
+			            description: card.description,
+			            name: card.name
+			        };
+			    })
+			    .value()
+			)
 			.then(mach.json);
 	}
 };
