@@ -1,10 +1,11 @@
 var gulp = require('gulp');
 var $ = require('gulp-load-plugins')();
 
-//gulp.task('lint', function () {
-//	gulp.src('./**/*.js')
-//		.pipe($.jshint())
-//});
+gulp.task('less', function() {
+	gulp.src('public/styles/main.less')
+		.pipe($.less())
+		.pipe(gulp.dest('public/styles/'));
+});
 
 gulp.task('develop', function () {
 	$.nodemon({
