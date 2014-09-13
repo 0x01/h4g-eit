@@ -15,10 +15,11 @@ angular.module('myApp.controllers', [])
 
 			console.log('fooob');
 
-		$http.get('/api/cards/').then(function(data){
-			console.log(data);
-		})
-
+			$http
+				.get('/api/cards')
+				.then(function(data) {
+					$scope.cards = data.data;
+				});
 		}
 	])
 	.controller('IssueController', ['$scope', '$http', '$location',

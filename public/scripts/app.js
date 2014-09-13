@@ -31,6 +31,10 @@ angular
 					templateUrl: 'partials/topic.html',
 					controller: 'ListController'
 				})
+				.when('/overview', {
+					templateUrl: 'partials/overview.html',
+					controller: 'ListController'
+				})
 				.otherwise({redirectTo: '/main'});
 		}
 	]);
