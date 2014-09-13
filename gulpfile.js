@@ -10,9 +10,9 @@ gulp.task('less', function() {
 gulp.task('develop', function () {
 	$.nodemon({
 		script: 'server.js',
-		ext: 'html js json'
+		ext: 'html js json less'
 	})
-//	.on('change', ['lint'])
+	.on('change', ['less'])
 	.on('restart', function () {
 		console.log('restarted!')
 	})
