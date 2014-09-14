@@ -2,6 +2,9 @@
 
 'use strict';
 
+
+var lorem = "Issue description or pitch. Phasellus quis ligula ut enim pretium ornare nec nec est. Vestibulum eget ipsum fringilla, scelerisque velit vel, cursus eros. Curabitur ullamcorper interdum sapien quis pretium. In eget tristique massa. In lacinia risus sed ullamcorper bibendum. Sed consectetur nec sem at venenatis. Integer sed lacinia risus, eu malesuada lectus. In dignissim congue massa, eu eleifend dui tristique maximus. Sed vehicula ante ut mauris vehicula, non laoreet arcu dapibus.";
+
 angular.module('myApp.controllers', [])
 	.controller('LandingController', ['$scope', '$http', '$location',
 		function($scope, $http, $location) {
@@ -27,12 +30,12 @@ angular.module('myApp.controllers', [])
 				.then(function(data) {
 					if(data.status === 200 && data.data)
 						$scope.cards = data.data.map(function(item){
-							console.log(item);
+							console.log('HERE', item);
 							return {
 								title: item.name,
 								author: 'Jean-Pierre',
 								description: item.description,
-								id: item.id,
+								key: item.key,
 								stars: 30,
 								upvotes: 14,
 								tags: ['climate', 'ebola', 'help']
@@ -44,14 +47,39 @@ angular.module('myApp.controllers', [])
 	.controller('DetailController', ['$scope', '$http', '$location', '$routeParams',
 		function($scope, $http, $location, $routeParams) {
 
-			console.log($routeParams.id);
-			$scope.card = {
-				stars: Math.floor(Math.random()*100),
-				upvotes: Math.floor(Math.random()*100),
-				title: 'Ebola in Sierra Leone',
-				author: 'Jean-Pierre',
-				description: 'Issue description or pitch. Phasellus quis ligula ut enim pretium ornare nec nec est. Vestibulum eget ipsum fringilla, scelerisque velit vel, cursus eros. Curabitur ullamcorper interdum sapien quis pretium. In eget tristique massa. In lacinia risus sed ullamcorper bibendum. Sed consectetur nec sem at venenatis. Integer sed lacinia risus, eu malesuada lectus. In dignissim congue massa, eu eleifend dui tristique maximus. Sed vehicula ante ut mauris vehicula, non laoreet arcu dapibus.',
-				tags: ['ebola', 'seirra-leone']
+			var id = $routeParams.id;
+
+			$scope.card = {}
+
+			$http
+				.get('/api/cards/one?id=' + id)
+				.then(function(data){
+					if(data && data.data.length)
+					{
+						var card = data.data[0];
+						$scope.card = {
+							stars: Math.floor(Math.random()*100),
+							upvotes: Math.floor(Math.random()*100),
+							title: card.name,
+							author: 'Jean-Pierre',
+							description: card.description,
+							tags: ['ebola', 'seirra-leone'],
+							level: card.level,
+							id: card.key
+						}
+					};
+				});
+
+			$scope.children = [
+				{
+					id: 123,
+					title: "Send contained beds for hospitals",
+					author: 'Jean-Pierre'
+				}
+			]
+
+			$scope.drillDown = function(id) {
+				$location.url('/detail/' + id);
 			}
 
 			$scope.doBreakdown = function () {
