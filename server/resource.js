@@ -10,8 +10,20 @@ var tables = config.tables;
 // moneyeyes
 var H = require('../H');
 
-function CardGet(){
-	return 200;
+function CardGet() {
+	return Q.fcall(function(){
+		return [
+			{
+			id: 1,
+			name: 'foo',
+			description: 'lorem'
+		}, {
+			id: 2,
+			name: 'bar',
+			description: 'baaz'
+		}
+		];
+	}).then(mach.json);
 }
 
 
@@ -86,7 +98,6 @@ exports.Cards = {
 	removelabel: CardRemoveLabel,
 	clearlabels: CardClearLabels,
 	act: CardAct,
-	create: CardCreate,
 	update: CardUpdate,
 	remove: CardRemove,
 };

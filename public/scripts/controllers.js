@@ -21,11 +21,22 @@ angular.module('myApp.controllers', [])
 				$location.url('/detail/' + id);
 			}
 
-		// get
 			$http
 				.get('/api/cards')
 				.then(function(data) {
-					$scope.cards = data.data;
+					if(data.status === 200 && data.data)
+						$scope.cards = data.data.map(function(item){
+							console.log(item);
+							return {
+								title: item.name,
+								author: 'Jean-Pierre',
+								description: item.description,
+								id: item.id,
+								stars: 30,
+								upvotes: 14,
+								tags: ['climate', 'ebola', 'help']
+							}
+						});
 				});
 		}
 	])
