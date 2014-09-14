@@ -30,7 +30,6 @@ angular.module('myApp.controllers', [])
 				.then(function(data) {
 					if(data.status === 200 && data.data)
 						$scope.cards = data.data.map(function(item){
-							console.log('HERE', item);
 							return {
 								title: item.name,
 								author: 'Jean-Pierre',
@@ -66,18 +65,33 @@ angular.module('myApp.controllers', [])
 							description: card.description,
 							tags: ['ebola', 'seirra-leone'],
 							level: card.level,
-							id: card.key
-						}
+							id: card.key,
+							image_url: card.image_url
+						};
+
+						// now lets pull children
+						$http
+							.get('/api/cards/children?id=' + id)
+							.then(function(data){
+								if(data && data.data.length)
+								{
+									$scope.children = data.data.map(function(item)
+									{
+										return {
+											key: item.key,
+											title: item.name,
+											tags: item.tags,
+											level: item.level,
+											description: item.description,
+										}
+									});
+								}
+							});
+
 					};
 				});
 
-			$scope.children = [
-				{
-					id: 123,
-					title: "Send contained beds for hospitals",
-					author: 'Jean-Pierre'
-				}
-			]
+			$scope.children = [];
 
 			$scope.drillDown = function(id) {
 				$location.url('/detail/' + id);
