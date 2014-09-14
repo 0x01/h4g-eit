@@ -5,11 +5,12 @@
 // Declare app level module which depends on filters, and services
 angular
 	.module('myApp', [
-	  'ngRoute',
-	  'myApp.filters',
-	  'myApp.services',
-	  'myApp.directives',
-	  'myApp.controllers'
+		'ngRoute',
+		'myApp.filters',
+		'myApp.services',
+		'myApp.directives',
+		'myApp.controllers',
+		'ui.bootstrap'
 	])
 
 	// allow DI for use in controllers, unit tests
@@ -34,6 +35,10 @@ angular
 				.when('/detail/:id', {
 					templateUrl: 'partials/detail.html',
 					controller: 'DetailController'
+				})
+				.when('/modal', {
+					templateUrl: 'partials/modal.html',
+					controller: 'ListController'
 				})
 				.otherwise({redirectTo: '/landing'});
 		}
