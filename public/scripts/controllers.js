@@ -3,6 +3,10 @@
 'use strict';
 
 angular.module('myApp.controllers', [])
+	.controller('LandingController', ['$scope', '$http', '$location',
+		function($scope, $http, $location) {
+		}
+	])
 	.controller('OverViewController', ['$scope', '$http', '$location',
 		function($scope, $http, $location) {
 			$scope.foo = "hello";
@@ -13,6 +17,9 @@ angular.module('myApp.controllers', [])
 	        itemSelector: '.item'
 	      });
 
+			$scope.viewDetail = function (id) {
+				$location.url('/detail/' + id);
+			}
 
 		// get
 			$http
@@ -22,9 +29,8 @@ angular.module('myApp.controllers', [])
 				});
 		}
 	])
-	.controller('IssueController', ['$scope', '$http', '$location',
+	.controller('DetailController', ['$scope', '$http', '$location',
 		function($scope, $http, $location) {
-			$scope.issue = Issue;
 		}
 	])
 })();
