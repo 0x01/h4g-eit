@@ -12,6 +12,4 @@ exports.DB = new Dynamite.Client({
     sslEnabled: true
 });
 
-exports.tables = {
-    users: settings.dynamodb.tables
-}
+exports.tables = settings.dynamodb.tables;
