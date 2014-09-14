@@ -31,15 +31,11 @@ angular
 					templateUrl: 'partials/overview.html',
 					controller: 'ListController'
 				})
-				.when('/topic', {
+				.when('/detail', {
 					templateUrl: 'partials/detail.html',
 					controller: 'ListController'
 				})
-				.when('/overview', {
-					templateUrl: 'partials/overview.html',
-					controller: 'ListController'
-				})
-				.otherwise({redirectTo: '/home'});
+				.otherwise({redirectTo: '/landing'});
 		}
 	]);
 })();
