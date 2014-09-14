@@ -1,19 +1,19 @@
-<div class="wrapper modal">
+<div class="wrapper create-issue">
 <h1>Breakdown an issue</h1> 
   <form role="form">
     <div class="form-group">
-      <label for="Title1">title</label>
+      <label for="Title1">Title</label>
       <input type="text" class="form-control" id="Title1" placeholder="Enter your title here...">
     </div>
     <div class="form-group">
-      <label for="description">escription</label> 
-      <input type="textarea" class="form-control" id="exampleInputPassword1" cols="25" rows="25" placeholder="Enter a description here..." style="height: 300px;"> 
+      <label for="description">Description</label> 
+      <textarea class="form-control" id="exampleInputPassword1" cols="25" rows="25" style="height: 300px;">Enter a description...</textarea>
 
     </div>
     <div class="form-group" ng-show="upload">
-      <label for="exampleInputFile">upload a cover picture</label>
+      <label for="exampleInputFile">Upload a cover picture</label>
       <input type="file" id="exampleInputFile">
     </div>
-    <button type="submit" class="btn btn-warning pull-right" ng-show="agreed">Submit</button>
+    <button type="submit" class="btn btn-warning pull-right">Submit</button>
   </form>
 </div>
