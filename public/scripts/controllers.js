@@ -27,4 +27,11 @@ angular.module('myApp.controllers', [])
 			$scope.issue = Issue;
 		}
 	])
+	.controller('RootController', ['$scope', '$http', '$location',
+		function($scope, $http, $location) {
+			$scope.location = function() {
+				return $location.path();
+			};
+		}
+	])
 })();
