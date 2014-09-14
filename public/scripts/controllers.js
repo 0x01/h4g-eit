@@ -59,7 +59,6 @@ angular.module('myApp.controllers', [])
 			}
 
 			$scope.doStar = function () {
-				console.log('DO STAR');
 				$scope.card.stars += 1;
 			}
 		}
