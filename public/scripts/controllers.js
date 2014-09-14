@@ -98,10 +98,7 @@ angular.module('myApp.controllers', [])
 			};
 
 			$scope.openModal = function(key, parent) {
-				var u = '/modal/' + key;
-				if(parent)
-					u += '/' + parent;
-				$location.url(u);
+				$location.url('/modal');
 			}
 		}
 	])
