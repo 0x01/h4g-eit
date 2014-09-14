@@ -10,65 +10,65 @@ var tables = config.tables;
 // moneyeyes
 var H = require('../H');
 
-function CardGet(){
+function CardGet(req){
+	return 200
+}
+
+
+function CardGetChildren(req){
 	return 200;
 }
 
 
-function CardGetChildren(){
+function CardCount(req){
 	return 200;
 }
 
 
-function CardCount(){
+function CardUpVote(req){
 	return 200;
 }
 
 
-function CardUpVote(){
+function CardStar(req){
 	return 200;
 }
 
 
-function CardStar(){
+function CardUnstar(req){
 	return 200;
 }
 
 
-function CardUnstar(){
+function CardAddLabel(req){
 	return 200;
 }
 
 
-function CardAddLabel(){
+function CardRemoveLabel(req){
 	return 200;
 }
 
 
-function CardRemoveLabel(){
+function CardClearLabels(req){
 	return 200;
 }
 
 
-function CardClearLabels(){
+function CardAct(req){
+	return 200;
+}
+
+function CardCreate(req){
+	return 200;
+}
+
+function CardUpdate(req){
 	return 200;
 }
 
 
-function CardAct(){
-	return 200;
-}
-
-function CardCreate(){
-	return 200;
-}
-
-function CardUpdate(){
-	return 200;
-}
-
-
-function CardRemove(){
+function CardRemove(req){
 	return 200;
 }
 
