@@ -9,7 +9,7 @@
     </div>
 
     <div class="topic-card row">
-        <img class="topic-card-image" src="http://d.ibtimes.co.uk/en/full/1395234/ebola-liberia.jpg" />
+        <img class="topic-card-image" nr-src="{{card.image_url}}" />
 
         <div class="topic-card-content">
 
@@ -82,7 +82,7 @@
         </div>
 
         <div class="col-sm-2 topic-child-drill">
-            <span ng-click="drillDown(child.id)" class="fa fa-angle-right fa-5x pull-right"></span>
+            <span ng-click="drillDown(child.key)" class="fa fa-angle-right fa-5x pull-right"></span>
         </div>
 
     </div>

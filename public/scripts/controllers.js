@@ -38,7 +38,8 @@ angular.module('myApp.controllers', [])
 								key: item.key,
 								stars: 30,
 								upvotes: 14,
-								tags: ['climate', 'ebola', 'help']
+								tags: ['climate', 'ebola', 'help'],
+								image_url: item.image_url
 							}
 						});
 				});
