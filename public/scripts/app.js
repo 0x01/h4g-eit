@@ -25,13 +25,13 @@ angular
 			$routeProvider
 				.when('/landing', {
 					templateUrl: 'partials/landing.html',
-					controller: 'ListController'
+					controller: 'LandingController'
 				})
 				.when('/overview', {
 					templateUrl: 'partials/overview.html',
 					controller: 'OverViewController'
 				})
-				.when('/detail', {
+				.when('/detail/:id', {
 					templateUrl: 'partials/detail.html',
 					controller: 'DetailController'
 				})
