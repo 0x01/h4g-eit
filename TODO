@@ -1,0 +1,40 @@
+- actions vote('up'), star()
+  --> write to ES
+
+- swipeL/R(), down(card.id), up(card.id)
+  --> update current card
+  --> pull top children
+  --> pull votes
+  --> pull upvotes
+
+/h4g2014/card/id/
+{ name: .. , descr: ... , deleted: true, ... }
+
+/h4g2014/
+
+index /h4g-eit/
+type card, event
+
+event: vote_up, star, unstar, unvote_up
+event: new_action, updated_action, deleted_action
+
+percolator -> receive tweet about event on starred issue
+// wait few minutes and aggregate (based on prediction)
+
+twitter auth
+
+
+open for much experimentation
+
+
+
+- edit card screen, add with empty, use to enter cards
+
+- update api method sends to ES and ddb ; if not exist: add
+- delete sets the delete flag to true
+- get
+- list get by level (range key level)
+  /api/cards-at-level/1/
+
+- get children -> ES
+
