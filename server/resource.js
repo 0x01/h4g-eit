@@ -10,13 +10,106 @@ var tables = config.tables;
 // moneyeyes
 var H = require('../H');
 
+
+
+var CardController = 
+{
+
+// 	function get_cards(key) {
+// 	return db
+// 		.newSQueryBuilder(tables.cards)
+// 		.filterAttributeEquals('key', "2")
+// 		.execute()
+// 		.then(_.property('result'))
+// 		.then(H.map(
+// 			    function(card){
+// 			        return {
+// 			            id: card.key,
+// 			            description: card.description,
+// 			            name: card.name,
+// 			            tags: card.tags,
+// 			            children: get_cards(card.key)
+// 			        };
+// 			    })
+// 			    .value()
+// 			)
+// 		;
+
+// }
+
+	GetChildren: function (id){
+		return	db
+			.newScanBuilder(tables.cards)
+			.filterAttributeContains("child_of", id)
+			.execute()
+			.then(_.property('result'))
+			// .then(
+			// 	H.map(
+			// 	    function(card){
+			// 	        return {
+			// 	            id: card.key,
+			// 	            description: card.description,
+			// 	            name: card.name,
+			// 	            tags: card.tags,
+
+			// 	        };
+			// 		    }
+			// 		)
+			// 	    .value()
+			// 	)
+			.then(mach.json);
+	},
+
+	List: function (filters){
+		return	db
+			.newScanBuilder(tables.cards)
+			.execute()
+			.then(_.property('result'))
+			// .then(
+			// 	H.map(
+			// 	    function(card){
+			// 	        return {
+			// 	            id: card.key,
+			// 	            description: card.description,
+			// 	            name: card.name,
+			// 	            tags: card.tags,
+			// 	            children: CardController.GetChildren(card.key)
+			// 	        };
+			// 		    }
+			// 		)
+			// 	    .value()
+			// 	)
+			.then(mach.json);
+	},
+
+	Delete: function (id){
+		
+	},
+
+	UpdateOrCreate: function (params){
+
+	},
+
+
+
+}
+
 function CardGet(req){
-	return 200
+	return CardController.List(0);
 }
 
 
 function CardGetChildren(req){
-	return 200;
+	id = req.params.id;
+	console.log(id);
+	if (id){
+		console.log(CardController.GetChildren(id));
+		return CardController.GetChildren(id);
+	}
+	else
+	{
+		return 404;
+	}
 }
 
 
