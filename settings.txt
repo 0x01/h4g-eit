@@ -1,0 +1,10 @@
+{
+    "dynamodb": {
+        "access_key": "AKIAJBP6GE4IDEB2SFPQ",
+        "region": "eu-west-1",
+        "secret_key": "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",
+        "tables": {
+            "cards": "earthissuetracker"
+        }
+    }
+}

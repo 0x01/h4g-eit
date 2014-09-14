@@ -38,14 +38,15 @@
 
     <!-- endbuild -->
   </head>
-  <body>
+  <body ng-controller="RootController">
   <header class="">
-    <div class="wrapper row">
+    <div ng-class="{'wrapper': location() != '/landing', 'wrapper2': location() == '/landing' }" class=" row">
       <h1 class="pull-left text-hide">Earth Issue Tracker</h1>
       <nav class="navbar pull-right">
         <ul class="nav navbar-nav">
-          <li><a class="menu" href="#/topic">Discover</a></li>
-          <li><a class="menu" href="#/topic">Create Topic</a></li>
+          <li><a class="menu" href="#/home">Home</a></li>
+          <li><a class="menu" href="#/overview">Discover</a></li>
+          <li><a class="menu" href="#/create">Create Topic</a></li>
         </ul>
       </nav>
     </div>  
@@ -63,6 +64,7 @@
     <script src="angular-ui/build/angular-ui.min.js"></script>
     <script src="angular-route/angular-route.js"></script>
     <script src="masonry/dist/masonry.pkgd.min.js"></script>
+    <script src="angular-bootstrap/ui-bootstrap.min.js"></script>
 
     <script src="scripts/app.js"></script>
     <script src="scripts/services.js"></script>

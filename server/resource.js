@@ -10,6 +10,7 @@ var tables = config.tables;
 // moneyeyes
 var H = require('../H');
 
+
 function guid() {
     function _p8(s) {
         var p = (Math.random().toString(16)+"000000000").substr(2,8);
@@ -205,7 +206,6 @@ exports.Cards = {
 	removelabel: CardRemoveLabel,
 	clearlabels: CardClearLabels,
 	act: CardAct,
-	create: CardCreate,
 	update: CardUpdate,
 	remove: CardRemove,
 };

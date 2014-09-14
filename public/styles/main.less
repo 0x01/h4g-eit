@@ -81,6 +81,50 @@ header {
     }
   }
 
+  .wrapper2 {
+    margin: 0 auto;
+    width: 100%;
+    overflow: hidden;
+
+    .nav-modal {
+
+    }
+
+    h1 {
+      width: 100px;
+      height: 100px;
+      display: block;
+      position: absolute;
+      background: url('../images/unnamed.png') no-repeat;
+      background-size: 70px 70px;
+      margin: 0;
+      top: 10px;
+      margin-left: 10px;
+    }
+
+    nav {
+      margin: 0;
+      font-weight: 400;
+      font-size: 14px;
+
+      .menu {
+        padding: 6px 12px;
+        margin: 15px 0 15px 15px;
+        color: #999;
+
+        &:hover {
+          color: #fff;
+          background-color: transparent;
+        }
+      }
+
+      .btn {
+        padding: 8px 16px;
+        margin: 12px 0;
+      }
+    }
+  }
+
   a {
     color: #fff;
   }
@@ -114,12 +158,18 @@ Green R=57 G=100 B=19
 
     &-image {
       height: 200px;
+      cursor: pointer;
     }
 
     &-title {
       font-size: 16px;
       padding: 0 15px;
       font-weight: 600;
+      cursor: pointer;
+
+      a:hover {
+        text-decoration: none;
+      }
     }
 
     &-author {
@@ -139,6 +189,14 @@ Green R=57 G=100 B=19
 
     hr {
       margin: 15px 0;
+    }
+  }
+
+  &-breadcrumb {
+    cursor: pointer;
+
+    &:hover {
+      background-color: #fff;
     }
   }
 
@@ -206,12 +264,16 @@ Green R=57 G=100 B=19
     }
   }
 
+  &-sorting {
+    padding-top: 30px;
+  }
+
   &-child {
     overflow: hidden;
     border-radius: 3px;
     box-shadow: 0 1px 3px rgba(0,0,0,.2);
     background-color: #fff;
-    margin-top: 50px;
+    margin-top: 30px;
     margin-left: 50px;
     cursor: pointer;
 
@@ -246,6 +308,41 @@ Green R=57 G=100 B=19
         color: #999;
       }
     }
+  }
+}
+
+.landing {
+
+  &-one {
+    display: block;
+    background: rgba(47,47,47,0.98) url('../images/1.png') no-repeat top center;
+    background-size: 70%;
+    width: 100%;
+    height: 445px;
+  }
+
+  &-two {
+    display: block;
+    background: #fff url('../images/2.png') no-repeat center center;
+    background-size: 55%;
+    width: 100%;
+    height: 480px;
+  }
+
+  &-three {
+    display: block;
+    background:  rgb(255,188,0) url('../images/3.png') no-repeat top center;
+    background-size: 70%;
+    width: 100%;
+    height: 400px;
+  }
+
+  &-four {
+    display: block;
+    background:  #fff url('../images/4.png') no-repeat center center;
+    background-size: 70%;
+    width: 100%;
+    height: 550px;
   }
 }
 
