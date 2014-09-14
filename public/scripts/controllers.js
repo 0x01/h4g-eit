@@ -11,6 +11,7 @@ angular.module('myApp.controllers', [])
 		function($scope, $http, $location) {
 			$scope.foo = "hello";
 
+		var container = document.querySelector('#container');
 	      var msnry = new Masonry( "#container", {
 	        // options
 	        columnWidth: 140,
@@ -58,7 +59,6 @@ angular.module('myApp.controllers', [])
 			}
 
 			$scope.doStar = function () {
-				console.log('DO STAR');
 				$scope.card.stars += 1;
 			}
 		}
@@ -75,7 +75,7 @@ angular.module('myApp.controllers', [])
 					controller: ModalInstanceCtrl,
 //					size: size,
 					backdrop: false,
-//					windowTemplateUrl: 'partials/Modal.html',
+					windowTemplateUrl: 'partials/Modal.html',
 					resolve: {
 						card: function () {
 							return card || {
