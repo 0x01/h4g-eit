@@ -29,11 +29,11 @@ angular
 				})
 				.when('/overview', {
 					templateUrl: 'partials/overview.html',
-					controller: 'ListController'
+					controller: 'OverViewController'
 				})
 				.when('/detail', {
 					templateUrl: 'partials/detail.html',
-					controller: 'ListController'
+					controller: 'DetailController'
 				})
 				.otherwise({redirectTo: '/landing'});
 		}
