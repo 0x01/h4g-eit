@@ -23,23 +23,19 @@ angular
 	.config(['$routeProvider',
 		function($routeProvider) {
 			$routeProvider
-				.when('/main', {
-					templateUrl: 'partials/main.html',
-					controller: 'ListController'
-				})
-				.when('/topic', {
-					templateUrl: 'partials/topic.html',
-					controller: 'ListController'
+				.when('/landing', {
+					templateUrl: 'partials/landing.html',
+					controller: 'LandingController'
 				})
 				.when('/overview', {
 					templateUrl: 'partials/overview.html',
-					controller: 'ListController'
+					controller: 'OverViewController'
 				})
-				.when('/home', {
-					templateUrl: 'partials/home.html',
-					controller: 'ListController'
+				.when('/detail/:id', {
+					templateUrl: 'partials/detail.html',
+					controller: 'DetailController'
 				})
-				.otherwise({redirectTo: '/main'});
+				.otherwise({redirectTo: '/landing'});
 		}
 	]);
 })();
