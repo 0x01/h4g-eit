@@ -8,17 +8,38 @@
       </div>
       <div class="modal-body">
         
-<br>Title<br> 
-<input class="textbox"type="text"> 
-<br>Discription<br> 
-<input class="textbox"type="text"> 
-<br>Location<br> 
-<input class="textbox"type="text"> 
+<form role="form">
+  <div class="form-group">
+    <label for="Title1">Title:</label>
+    <input type="title" class="form-control" id="Title1" placeholder="Enter your title here...">
+  </div>
+  <div class="form-group">
+    <label for="exampleInputPassword1">subtitle:</label>
+    <input type="Subtitle" class="form-control" id="exampleInputPassword1" placeholder="Enter a subtitle here...">
+  </div>
+   <div class="checkbox">
+    <label>
+      <input type="checkbox" ng-model="upload"> Insert a cover picture
+    </label>
+  </div>
+  <div class="form-group" ng-show="upload">
+    <label for="exampleInputFile">upload a cover picture</label>
+    <input type="file" id="exampleInputFile">
+    <p class="help-block">Example block-level help text here.</p>
+  </div>
+  <div class="checkbox">
+    <label>
+      <input type="checkbox" ng-model="agreed"> I have read and agreed to the Terms and conditions
+    </label>
+  </div>
+  <button type="submit" class="btn btn-default" ng-show="agreed">Submit</button>
+    <button type="submit" class="btn btn-default" ng-hide="agreed" disabled="">Submit</button>
+</form>
 
 
 <!--
 <br>Location<br> 
-<div id="widget">
+<div id="locationwidget">
 <form>
 Region&raquo; <select onchange="set_country(this,country,city_state)" size="1" name="region">
 <option value="" selected="selected">Select a Region </option>
@@ -38,7 +59,7 @@ City/State&raquo; <select name="city_state" size="1" disabled="disabled" onchang
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save this topic</button>
+        <button type="button" class="btn btn-primary" data-toggle="tooltip" data-placement="bottom" title="By clicking this button, you accept the terms in our License agreement">Save this topic</button>
       </div>
     </div>
   </div>

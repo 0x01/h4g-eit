@@ -3,7 +3,7 @@
 'use strict';
 
 angular.module('myApp.controllers', [])
-	.controller('ListController', ['$scope', '$http', '$location',
+	.controller('OverViewController', ['$scope', '$http', '$location',
 		function($scope, $http, $location) {
 			$scope.foo = "hello";
 
@@ -13,8 +13,8 @@ angular.module('myApp.controllers', [])
 	        itemSelector: '.item'
 	      });
 
-			console.log('fooob');
 
+		// get
 			$http
 				.get('/api/cards')
 				.then(function(data) {
