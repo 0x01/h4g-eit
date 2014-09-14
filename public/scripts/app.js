@@ -37,8 +37,8 @@ angular
 					controller: 'DetailController'
 				})
 				.when('/modal', {
-					templateUrl: 'partials/modal.html',
-					controller: 'ListController'
+					templateUrl: 'partials/Modal.html',
+					controller: 'RootController'
 				})
 				.otherwise({redirectTo: '/landing'});
 		}
