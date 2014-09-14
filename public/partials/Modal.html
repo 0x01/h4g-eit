@@ -11,11 +11,12 @@
 <form role="form">
   <div class="form-group">
     <label for="Title1">Title:</label>
-    <input type="title" class="form-control" id="Title1" placeholder="Enter your title here...">
+    <input type="text" class="form-control" id="Title1" placeholder="Enter your title here...">
   </div>
   <div class="form-group">
-    <label for="exampleInputPassword1">subtitle:</label>
-    <input type="Subtitle" class="form-control" id="exampleInputPassword1" placeholder="Enter a subtitle here...">
+    <label for="description">description:</label> 
+    <input type="textarea" class="form-control" id="exampleInputPassword1" cols=25 rows=:5 placeholder="Enter a description here..."> 
+
   </div>
    <div class="checkbox">
     <label>
@@ -37,22 +38,24 @@
 </form>
 
 
-<!--
-<br>Location<br> 
-<div id="locationwidget">
-<form>
-Region&raquo; <select onchange="set_country(this,country,city_state)" size="1" name="region">
-<option value="" selected="selected">Select a Region </option>
-<option value=""></option>
-<script type="text/javascript">
-setRegions(this);
-</script>
-</select>
-Country&raquo; <select name="country" size="1" disabled="disabled" onchange="set_city_state(this,city_state)"></select>
-City/State&raquo; <select name="city_state" size="1" disabled="disabled" onchange="print_city_state(country,this)"></select>
-</form>
-<div id="txtregion"></div>
-<div id="txtplacename"></div>
+
+<br>Location:<br> 
+<div align="left">
+        <br/>Select Country:
+        <select id="country" name="country"></select>
+        <br />State:
+        <select name="state" id="state"></select>
+        <br/>
+      
+        <script language="javascript">
+            populateCountries("country", "state");
+            populateCountries("country2");
+        </script>
+        <br/>
+        <br/>
+        <br />
+        <br />
+    </div>
 </div>
 -->
 
