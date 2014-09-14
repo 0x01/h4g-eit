@@ -158,12 +158,18 @@ Green R=57 G=100 B=19
 
     &-image {
       height: 200px;
+      cursor: pointer;
     }
 
     &-title {
       font-size: 16px;
       padding: 0 15px;
       font-weight: 600;
+      cursor: pointer;
+
+      a:hover {
+        text-decoration: none;
+      }
     }
 
     &-author {
@@ -183,6 +189,14 @@ Green R=57 G=100 B=19
 
     hr {
       margin: 15px 0;
+    }
+  }
+
+  &-breadcrumb {
+    cursor: pointer;
+
+    &:hover {
+      background-color: #fff;
     }
   }
 
@@ -250,12 +264,16 @@ Green R=57 G=100 B=19
     }
   }
 
+  &-sorting {
+    padding-top: 30px;
+  }
+
   &-child {
     overflow: hidden;
     border-radius: 3px;
     box-shadow: 0 1px 3px rgba(0,0,0,.2);
     background-color: #fff;
-    margin-top: 50px;
+    margin-top: 30px;
     margin-left: 50px;
     cursor: pointer;
 
@@ -293,7 +311,7 @@ Green R=57 G=100 B=19
   }
 }
 
-.home {
+.landing {
 
   &-one {
     display: block;
@@ -317,6 +335,14 @@ Green R=57 G=100 B=19
     background-size: 70%;
     width: 100%;
     height: 400px;
+  }
+
+  &-four {
+    display: block;
+    background:  #fff url('../images/4.png') no-repeat center center;
+    background-size: 70%;
+    width: 100%;
+    height: 550px;
   }
 }
 
