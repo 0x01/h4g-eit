@@ -10,7 +10,13 @@ var tables = config.tables;
 // moneyeyes
 var H = require('../H');
 
-
+function guid() {
+    function _p8(s) {
+        var p = (Math.random().toString(16)+"000000000").substr(2,8);
+        return s ? "-" + p.substr(0,4) + "-" + p.substr(4,4) : p ;
+    }
+    return _p8() + _p8(true) + _p8(true) + _p8();
+}
 
 var CardController = 
 {
@@ -83,11 +89,30 @@ var CardController =
 	},
 
 	Delete: function (id){
-		
+
 	},
 
 	UpdateOrCreate: function (params){
+		if (!params.contains("id")){
+			params.id = guid();
+		}
 
+		var builder = db.newUpdateBuilder(tables.cards);
+		builder = builder.setHashKey("key", params.id);
+		builder = builder.enableUpsert();
+
+		for (var key in params) {
+			value = params[key]
+			if (key == "id"){ key = "key"; }
+
+			builder = builder.putAttribute(key, value);
+
+		}
+
+		return builder
+				.execute()
+				.then(_.property('result'))
+				.then(mach.json);
 	},
 
 
@@ -153,7 +178,8 @@ function CardAct(req){
 }
 
 function CardCreate(req){
-	return 200;
+	params = req.params;
+	return CardController.UpdateOrCreate(params);
 }
 
 function CardUpdate(req){
