@@ -67,6 +67,29 @@ var CardController =
 			.then(mach.json);
 	},
 
+	One: function (id){
+		return	db
+			.newQueryBuilder(tables.cards)
+			.setHashKey('key', id)
+			.execute()
+			.then(_.property('result'))
+			// .then(
+			// 	H.map(
+			// 	    function(card){
+			// 	        return {
+			// 	            id: card.key,
+			// 	            description: card.description,
+			// 	            name: card.name,
+			// 	            tags: card.tags,
+			// 	            children: CardController.GetChildren(card.key)
+			// 	        };
+			// 		    }
+			// 		)
+			// 	    .value()
+			// 	)
+			.then(mach.json);
+	},
+
 	List: function (filters){
 		return	db
 			.newScanBuilder(tables.cards)
@@ -89,24 +112,46 @@ var CardController =
 			.then(mach.json);
 	},
 
-	Delete: function (id){
-
+	Delete: function (id, level){
+		return CardController.UpdateOrCreate(
+				{
+					"id": id,
+					"level": level,
+					"is_deleted": 1
+				}
+			);
 	},
 
 	UpdateOrCreate: function (params){
-		if (!params.contains("id")){
-			params.id = guid();
+		var id;
+		var level;
+
+		if (params["id"]){
+			id = params["id"];
+		}
+		else
+		{
+			id = guid();
+		}
+
+		if (params["level"]){
+			level = params["level"];
+		}
+		else
+		{
+			level = 0;
 		}
 
 		var builder = db.newUpdateBuilder(tables.cards);
-		builder = builder.setHashKey("key", params.id);
+		builder = builder.setHashKey("key", id);
+		builder = builder.setRangeKey("level", level);
 		builder = builder.enableUpsert();
 
 		for (var key in params) {
 			value = params[key]
-			if (key == "id"){ key = "key"; }
-
-			builder = builder.putAttribute(key, value);
+			if (key != "id" && key != "level" && key != "key") {
+				builder = builder.putAttribute(key, value);
+			}
 
 		}
 
@@ -114,6 +159,7 @@ var CardController =
 				.execute()
 				.then(_.property('result'))
 				.then(mach.json);
+
 	},
 
 
@@ -170,29 +216,40 @@ function CardRemoveLabel(req){
 
 
 function CardClearLabels(req){
-	return 200;
+	params = req.params;
+	params['labels'] = [];
+	return CardController.UpdateOrCreate(params);
 }
 
 
 function CardAct(req){
-	return 200;
+	params = req.params;
+	params['done'] = 1;
+	return CardController.UpdateOrCreate(params);
 }
 
 function CardCreate(req){
 	params = req.params;
+	console.log(params);
 	return CardController.UpdateOrCreate(params);
 }
 
 function CardUpdate(req){
-	return 200;
+	params = req.params;
+	console.log(params);
+	return CardController.UpdateOrCreate(params);
 }
 
 
 function CardRemove(req){
-	return 200;
+	params = req.params;
+	return CardController.Delete(params.id, params.level);
 }
 
-
+function CardOne(req){
+	params = req.params;
+	return  CardController.One(params.id);
+}
 
 
 exports.Cards = {
@@ -208,6 +265,8 @@ exports.Cards = {
 	act: CardAct,
 	update: CardUpdate,
 	remove: CardRemove,
+	create: CardCreate,
+	one: CardOne,
 };
 
 

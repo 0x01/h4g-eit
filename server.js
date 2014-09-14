@@ -21,6 +21,7 @@ app.get('/config/environment', function() {
 // /user(s) API
 var R = require('./server/resource');
 app.post('/api/cards', R.Cards.list);
+app.post('/api/cards/one', R.Cards.one);
 app.post('/api/cards/children', R.Cards.children);
 app.post('/api/cards/count', R.Cards.count);
 app.post('/api/cards/upvote', R.Cards.upvote);
@@ -35,6 +36,7 @@ app.post('/api/cards/update', R.Cards.update);
 app.post('/api/cards/remove', R.Cards.remove);
 
 app.get('/api/cards', R.Cards.list);
+app.get('/api/cards/one', R.Cards.one);
 app.get('/api/cards/children', R.Cards.children);
 app.get('/api/cards/count', R.Cards.count);
 app.get('/api/cards/upvote', R.Cards.upvote);

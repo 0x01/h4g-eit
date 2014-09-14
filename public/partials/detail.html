@@ -60,60 +60,29 @@
 
     <div class="row topic-sorting"><a class="pull-right">Most popular &nbsp;<span class="fa fa-caret-down"></span></a></div>
 
-    <div class="topic-child row">
+    <div class="topic-child row" ng-repeat="child in children">
 
         <div class="col-sm-10 topic-child-content">
 
-            <h1 class="topic-child-content-title">
-                Send contained beds for hospitals
+            <h1 ng-click="drillDown(child.id)" class="topic-child-content-title">
+                {{child.title}}
             </h1>
 
             <div class="topic-child-content-author">
-                Topic author
+                {{child.author}}
             </div>
 
             <div class="topic-child-content-meta">
                 <ul class="nav nav-pills">
-                    <li><span class="fa fa-star"></span> 30</li>
-                    <li><span class="fa fa-sort-amount-desc"></span> 14</li>
+                    <li><span class="fa fa-star"></span>{{child.stars}}</li>
+                    <li><span class="fa fa-sort-amount-desc"></span> {{child.upvotes}}</li>
                 </ul>  
             </div>
 
         </div>
 
-        <div class="col-sm-2 topic-child-drill">   
-
-            <span class="fa fa-angle-right fa-5x pull-right"></span>
-
-        </div>
-
-    </div>
-
-    <div class="topic-child row">
-
-        <div class="col-sm-10 topic-child-content">
-
-            <h1 class="topic-child-content-title">
-                Send contained beds for hospitals
-            </h1>
-
-            <div class="topic-child-content-author">
-                Topic author
-            </div>
-
-            <div class="topic-child-content-meta">
-                <ul class="nav nav-pills">
-                    <li><span class="fa fa-star"></span> 30</li>
-                    <li><span class="fa fa-sort-amount-desc"></span> 14</li>
-                </ul>  
-            </div>
-
-        </div>
-
-        <div class="col-sm-2 topic-child-drill">   
-
-            <span class="fa fa-angle-right fa-5x pull-right"></span>
-
+        <div class="col-sm-2 topic-child-drill">
+            <span ng-click="drillDown(child.id)" class="fa fa-angle-right fa-5x pull-right"></span>
         </div>
 
     </div>

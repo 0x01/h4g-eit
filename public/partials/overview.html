@@ -6,7 +6,7 @@
         <div class="topic-grid-content">
 
             <h1 class="topic-grid-title">
-                <a ng-click="viewDetail(card.id)">{{card.title}}</a>
+                <a ng-click="viewDetail(card.key)">{{card.title}}</a>
             </h1>
 
             <div class="topic-grid-author row">
@@ -24,7 +24,8 @@
             <hr />
 
             <div class="topic-grid-meta">
-                <span class="label label-default">label topic</span>
+                <span class="label label-default"
+                      ng-repeat="tag in card.tags">{{tag}}</span>
             </div>
 
         </div>
