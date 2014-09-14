@@ -39,6 +39,10 @@ angular
 					templateUrl: 'partials/home.html',
 					controller: 'ListController'
 				})
+				.when('/modal', {
+					templateUrl: 'partials/modal.html',
+					controller: 'ListController'
+				})
 				.otherwise({redirectTo: '/main'});
 		}
 	]);
