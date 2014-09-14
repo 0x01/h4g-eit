@@ -97,48 +97,11 @@ angular.module('myApp.controllers', [])
 				return $location.path();
 			};
 
-			$scope.openModal = function(card, parent) {
-				var modalInstance = $modal.open({
-					templateUrl: 'partials/Modal.html',
-					controller: ModalInstanceCtrl,
-//					size: size,
-					backdrop: false,
-					windowTemplateUrl: 'partials/Modal.html',
-					resolve: {
-						card: function () {
-							return card || {
-								name: "New Issue"
-							};
-						},
-						parent: function() {
-							return parent;
-						}
-					}
-				});
-
-				var ModalInstanceCtrl = function ($scope, $modalInstance, card, parent) {
-
-					$scope.card = card; // the card
-					$scope.parent = parent; // read only
-
-					$scope.ok = function () {
-						$modalInstance.close($scope.card);
-					};
-
-					$scope.cancel = function () {
-						$modalInstance.dismiss('cancel');
-					};
-				};
-
-				modalInstance.result
-					.then(
-						function success(card) {
-							console.log('update card', card);
-						},
-						function closed() {
-							$log.info('Modal dismissed at: ' + new Date());
-						}
-					);
+			$scope.openModal = function(key, parent) {
+				var u = '/modal/' + key;
+				if(parent)
+					u += '/' + parent;
+				$location.url(u);
 			}
 		}
 	])
