@@ -143,10 +143,13 @@ and specialise it to what we think you would like to see (based on other
 starred cards, who your friends/followers are
 and what they starred, etc).
 
-## Why is your page just an image?
+## Why is your landing page just an image?
 
 Because we had to last minute rewrite a lot of things, given the time
 limit we felt that this was the best way to present our concept.
+
+Also, the rest of the system is working, with a little bit of time we
+will have it production ready. Look at the source, Luke.
 
 ## This sounds like a lot of work, 
 
