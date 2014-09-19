@@ -13,16 +13,12 @@ This app will help you come to action, find a (local) action you can do.
 [Screenshots](https://geekli.st/wires/we-built-earth-issue-tracker-at-geeklist-hack4good-06-in-amsterdam-and-won-3rd-place)
 
  (after the fact recording due to technical issues; 6 minutes, fits in
- three when not tired)
+ three when not tired. Apologies for the uninspiring tone)
 
 ## Other Pitches/Demo's
 
-- [Amsterdam Local
-  Judgement](https://www.youtube.com/watch?v=KLQS_MdfdJ8#t=5m) (Marleen
-  + Youri; **3rd place**!)
-  - [Global Judgement
-	Session](https://www.youtube.com/watch?v=LXV5L6TIeuU#t=20m)
-	(computer crashed; Jelle)
+- [Amsterdam Local Judgement](https://www.youtube.com/watch?v=KLQS_MdfdJ8#t=5m) (Marleen + Youri; **3rd place**!)
+- [Global Judgement Session](https://www.youtube.com/watch?v=LXV5L6TIeuU#t=20m) (computer crashed; Jelle)
 
 ## Team
 
@@ -34,37 +30,24 @@ Also below is just an indication of who did what.
 - Jelle Herold [jelle@defekt.nl](mailto:jelle@defekt.nl)
   [@statebox](https://twitter.com/statebox) -- team lead, backend
   node.js, frontend angular.js
-  - Samy Arous -- backend python, backend node.js
-  - Jean-Pierre Pequito
-	[@hellojeanpierre](https://twitter.com/hellojeanpierre)
-	[https://geekli.st/samnadine](https://geekli.st/samnadine) --
-	frontend UX + LESS implementation
-	- Ehtimaad Rais [geeklist](https://geekli.st/ehtimaad) -- social
-	  media aspects & presentations
-	  - Marleen van der Zanden
-		[marleenzanden@gmail.com](mailto:marleenzanden@gmail.com) --
-		design
-		- Youri Broekhuizen
-		  [geeklist](https://geekli.st/youribroekhuizen) -- frontend
-		  HTML
-		  - Daniel Quinn (left project)
-			[@searchingfortao](https://twitter.com/searchingfortao) --
-			backend python
+- Samy Arous -- backend python, backend node.js
+- Jean-Pierre Pequito [@hellojeanpierre](https://twitter.com/hellojeanpierre) [https://geekli.st/samnadine](https://geekli.st/samnadine) -- frontend UX + LESS implementation
+- Ehtimaad Rais [geeklist](https://geekli.st/ehtimaad) -- social media aspects & presentations
+- Marleen van der Zanden [marleenzanden@gmail.com](mailto:marleenzanden@gmail.com) -- design
+- Youri Broekhuizen [geeklist](https://geekli.st/youribroekhuizen) -- frontend HTML, demo
+- Daniel Quinn (abandoned project) [@searchingfortao](https://twitter.com/searchingfortao) -- backend python
 
 ## Some older bits
 
-- [draft
-  presentation.pdf](https://s3.amazonaws.com/uploads.hipchat.com/86368/1208451/qHadurCBW1DOmPG/earth%20issue%20trackers.pdf)
-  - [Initial rough
-	notes](https://github.com/0x01/h4g-eit-django/blob/master/README.md)
-	(old)
-	- Abandoned django codebase
-	  [here](https://github.com/0x01/h4g-eit-django)
+- [draft presentation.pdf](https://s3.amazonaws.com/uploads.hipchat.com/86368/1208451/qHadurCBW1DOmPG/earth%20issue%20trackers.pdf)
+- [Initial rough notes](https://github.com/0x01/h4g-eit-django/blob/master/README.md) (old)
+- Abandoned django codebase [here](https://github.com/0x01/h4g-eit-django)
 
 # Concept
 
 We would like to combine top-to-bottom and bottom-to-top approaches in
 problem solving.
+
 (inspired by the mathematical concept of a Galois Connection)
 
 Roughly we think NGO's, scientists and activists use a more
