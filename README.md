@@ -68,9 +68,8 @@ problem solving.
 (inspired by the mathematical concept of a Galois Connection)
 
 Roughly we think NGO's, scientists and activists use a more
-'top-to-bottom' approach.
-Whereas interested civilians wanting to get into action would be more
-bottom-to-top.
+'top-to-bottom' approach.  Whereas interested civilians wanting to get
+into action would be more bottom-to-top.
 
 We imagine our system helping both parties to make their efforts more
 efficient.
@@ -81,15 +80,15 @@ The information collected by our system would help with:
 - Cataloging and mapping current global and local issues
 - Capturing motivation created by a campaign, by sending people to
   actionable cards in your campaign (short url: eit.re/my-issue)
-  - Help people find something local they can do, and make sure it's
-	most efficient use of their time (replace lightbulb v.s. fly less)
+- Help people find something local they can do, and make sure it's most
+  efficient use of their time (replace lightbulb v.s. fly less)
 
-	What is currently worked out is only the 'bottom-up' part of this
-	application.
-	We focussed on the UX of it and this is targeted at everyone.
+What is currently worked out is only the 'bottom-up' part of this
+application.  We focussed on the UX of it and this is targeted at
+everyone.
 
-	We imagine that later a moderation and analysis site will be added
-	to it (reddit+stackoverflow - like).
+We imagine that later a moderation and analysis site will be added to it
+(reddit+stackoverflow - like).
 
 ## cards
 
