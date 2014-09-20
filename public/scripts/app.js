@@ -36,9 +36,9 @@ angular
 					templateUrl: 'partials/detail.html',
 					controller: 'DetailController'
 				})
-				.when('/modal', {
+				.when('/breakdown/:parent/:level', {
 					templateUrl: 'partials/Modal.html',
-					controller: 'RootController'
+					controller: 'BreakdownController'
 				})
 				.otherwise({redirectTo: '/landing'});
 		}

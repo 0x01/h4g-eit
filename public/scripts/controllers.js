@@ -98,11 +98,33 @@ angular.module('myApp.controllers', [])
 			}
 
 			$scope.doBreakdown = function () {
-				$scope.openModal({}, $scope.card.id)
+				$scope.openModal($scope.card.id, $scope.card.level)
 			}
 
 			$scope.doStar = function () {
 				$scope.card.stars += 1;
+			}
+		}
+	])
+	.controller('BreakdownController', ['$scope', '$http', '$location', '$routeParams',
+		function($scope, $http, $location, $routeParams) {
+			var parent = $routeParams.parent;
+			var level = $routeParams.level;
+
+			$scope.card = {
+				author: 'You',
+				child_of: [parent],
+				level: (parseInt(level) + 1)
+			};
+
+			$scope.addCard = function() {
+				console.log($scope.card);
+				$http
+					.post('/api/cards/update?level=' + $scope.card.level, $scope.card)
+					.then(function(data){
+						console.log(data);
+						$location.url('/detail/' + data.data.key);
+					})
 			}
 		}
 	])
@@ -112,8 +134,8 @@ angular.module('myApp.controllers', [])
 				return $location.path();
 			};
 
-			$scope.openModal = function(key, parent) {
-				$location.url('/modal');
+			$scope.openModal = function(key, level) {
+				$location.url('/breakdown/' + key + '/' + level);
 			}
 		}
 	])
