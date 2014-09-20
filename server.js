@@ -54,4 +54,4 @@ app.get('/api/cards/remove', R.Cards.remove);
 //app.post(/\/user\/(.+?)\/check_count/, R.Users.check_count);
 //app.post('/payments/:amount', R.Payments.create_transaction);
 
-mach.serve(app, 9200);
+mach.serve(app, 3000);
