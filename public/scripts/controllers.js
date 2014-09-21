@@ -10,9 +10,10 @@ angular.module('myApp.controllers', [])
 		function($scope, $http, $location) {
 		}
 	])
-	.controller('OverViewController', ['$scope', '$http', '$location',
-		function($scope, $http, $location) {
+	.controller('OverViewController', ['$scope', '$http', '$location', '$routeParams',
+		function($scope, $http, $location, $routeParams) {
 			$scope.foo = "hello";
+			var level = $routeParams.level;
 
 		var container = document.querySelector('#container');
 	      var msnry = new Masonry( "#container", {
@@ -29,16 +30,19 @@ angular.module('myApp.controllers', [])
 				.get('/api/cards')
 				.then(function(data) {
 					if(data.status === 200 && data.data)
-						$scope.cards = data.data.map(function(item){
+						$scope.cards = data.data.filter(function(item){
+							return (item.level < 2) && (!item.deleted);
+						}).map(function(item){
 							return {
 								title: item.name,
-								author: 'Jean-Pierre',
+								author: item.author || 'Jean-Pierre',
 								description: item.description,
 								key: item.key,
 								stars: 30,
 								upvotes: 14,
-								tags: ['climate', 'ebola', 'help'],
-								image_url: item.image_url
+								tags: item.tags || ['climate', 'ebola', 'help'],
+								image_url: item.image_url,
+								deleted: item.deleted
 							}
 						});
 				});
@@ -61,9 +65,9 @@ angular.module('myApp.controllers', [])
 							stars: Math.floor(Math.random()*100),
 							upvotes: Math.floor(Math.random()*100),
 							title: card.name,
-							author: 'Jean-Pierre',
+							author: card.author || 'Jean-Pierre',
 							description: card.description,
-							tags: ['ebola', 'seirra-leone'],
+							tags: card.tags || ['ebola', 'seirra-leone'],
 							level: card.level,
 							id: card.key,
 							image_url: card.image_url
@@ -75,14 +79,21 @@ angular.module('myApp.controllers', [])
 							.then(function(data){
 								if(data && data.data.length)
 								{
-									$scope.children = data.data.map(function(item)
+									$scope.children = data.data
+										.filter(function(item){
+											return !item.deleted;
+										})
+										.map(function(item)
 									{
 										return {
 											key: item.key,
 											title: item.name,
-											tags: item.tags,
+											author: item.author || 'Jean-Pierre',
+											tags: item.tags || [],
 											level: item.level,
 											description: item.description,
+											stars: Math.floor(Math.random()*100),
+											upvotes: Math.floor(Math.random()*100)
 										}
 									});
 								}

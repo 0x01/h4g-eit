@@ -10,7 +10,7 @@
 
     <div class="topic-card row">
         <img class="topic-card-image"
-             src="http://d.ibtimes.co.uk/en/full/1395234/ebola-liberia.jpg"
+
              ng-src="{{card.image_url}}"/>
 
         <div class="topic-card-content">
@@ -66,7 +66,7 @@
 
         <div class="col-sm-10 topic-child-content">
 
-            <h1 ng-click="drillDown(child.id)" class="topic-child-content-title">
+            <h1 ng-click="drillDown(child.key)" class="topic-child-content-title">
                 {{child.title}}
             </h1>
 
